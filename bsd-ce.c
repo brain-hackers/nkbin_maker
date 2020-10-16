@@ -34,7 +34,7 @@ int main(int argc, char *argv[]) {
     unsigned int i32, cksum, ch;
     long len;
 
-    while ((i = getopt(argc, argv, "hvo:l:")) != -1) {
+    while ((i = getopt(argc, argv, "ho:")) != -1) {
         switch (i) {
         case 'o':
             outfile = optarg;
