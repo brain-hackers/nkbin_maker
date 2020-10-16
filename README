@@ -1,9 +1,19 @@
 This is a nk.bin maker which contains U-Boot
 Based on bsd-ce(https://rink.nu/projects/bsd-ce.html)
 
-���쌴��:
-SHARP Brain��OS�Ƃ���Windows CE 6.0�𓋍ڂ��Ă���
-Brain�ɓ��ڂ���Ă���Windows CE�p�̃u�[�g���[�_�[(EBOOT)��SD�J�[�h���珊��̖��O��OS�C���[�W��ǂݍ���
-���z�A�h���X0xA0200000(�����A�h���X0x40200000)�ւƃW�����v����
-������BSD�J�[�l����Windows CE�̃u�[�g���[�_�[����N�����邽�߂�nk.bin�𐶐�����v���O�����𗬗p��
-0xA0200000��U-Boot��ǂݍ��ނ悤�Ƀp�b�N����nk.bin�𐶐�����̂��{�v���O�����ł���
+動作原理:
+SHARP BrainはOSとしてWindows CE 6.0を搭載している
+Brainに搭載されているWindows CE用のブートローダー(EBOOT)はSDカードから所定の名前のOSイメージを読み込み
+仮想アドレス0xA0200000(物理アドレス0x40200000)へとジャンプする
+ここでBSDカーネルをWindows CEのブートローダーから起動するためのnk.binを生成するプログラムを流用し
+0xA0200000へU-Bootを読み込むようにパックしたnk.binを生成するのが本プログラムである
+
+使用方法:
+gccとmakeのインストールされたLinux上で
+
+git clone https://github.com/brain-hackers/nkbin_maker
+cd nkbin_maker
+make
+./bsd-ce (ビルドして出力されたu-boot.binのパス)
+
+フォルダ内にU-Bootがパックされたnk.binが生成される
