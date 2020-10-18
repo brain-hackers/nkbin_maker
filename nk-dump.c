@@ -1,13 +1,12 @@
 #include <err.h>
 #include <fcntl.h>
-#include <gelf.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <sys/types.h>
 #include <unistd.h>
 
-uint8_t magic[7] = "B000FF\n";
+unsigned char magic[7] = "B000FF\n";
 
 #define READ(buf, len)                                                                             \
     if (!fread(buf, len, 1, f))                                                                    \
@@ -15,8 +14,8 @@ uint8_t magic[7] = "B000FF\n";
 
 int main(int argc, char *argv[]) {
     FILE *f;
-    uint8_t marker[7];
-    uint32_t i32, addr, cksum, len, i;
+    unsigned char marker[7];
+    unsigned int i32, addr, cksum, len, i;
     int n, ch, c;
 
     if (argc != 2) {
