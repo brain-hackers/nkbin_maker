@@ -14,6 +14,6 @@ gccとmakeのインストールされたLinux上で
 git clone https://github.com/brain-hackers/nkbin_maker
 cd nkbin_maker
 make
-./bsd-ce (ビルドして出力されたu-boot.binのパス)
+./bsd-ce (ビルドして出力されたu-boot(拡張子なし)のパス)
 
 フォルダ内にU-Bootがパックされたnk.binが生成される
